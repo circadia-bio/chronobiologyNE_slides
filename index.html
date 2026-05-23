@@ -97,7 +97,7 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-193d63e64affc2f5cac905c0ef0dc5e2.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-4ef49ea3ea4d60a62603a33cd2b2b08f.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -209,7 +209,7 @@
     box-sizing: border-box;
     padding-right: 0;
   ">
-    <h1 style="font-family:'Playfair Display',serif; font-size:2.1em; font-weight:500; color:#004474; line-height:1.1; margin:0 0 0.3em;">Building Open Research Infrastructure for Chronobiology</h1>
+    <h1 style="font-family:'Playfair Display',serif; font-size:2.1em; font-weight:500; color:#004474; line-height:1.1; margin:0 0 0.3em;">Building an Open Research Infrastructure for Chronobiology</h1>
     <p style="font-family:'Playfair Display',serif; font-size:1.05em; color:#1B6799; margin:0 0 1em;">Circadia Lab Tools</p>
     <p style="font-family:'Playfair Display',serif; font-size:0.85em; color:#FC544A; margin:0 0 0.6em;">Lucas França &amp; Mario Leocadio-Miguel</p>
     <p style="font-family:'Playfair Display',serif; font-size:0.72em; color:#1B6799; margin:0;">11 June 2026</p>
@@ -218,17 +218,18 @@
 </section>
 <section id="the-problem-were-solving" class="slide level2">
 <h2>The problem we’re solving</h2>
+<p><br></p>
 <div class="intro">
 <p>Sleep &amp; circadian research depends on validated instruments, careful data collection, and reproducible pipelines.</p>
 </div>
 <p>Yet the tools connecting these layers are often:</p>
 <ul>
-<li><strong>fragmented</strong> across incompatible formats and platforms</li>
+<li><strong>fragmented</strong> across incompatible formats and platforms, paper-based methods</li>
 <li><strong>brittle</strong> — dependent on locally-installed, unversioned software</li>
 <li><strong>locked</strong> behind proprietary or expensive licences</li>
 </ul>
 <div class="fragment">
-<p><span class="cta">We built a stack of interconnected open-source tools to address this.</span></p>
+<p><span class="cta">We are building a stack of interconnected open-source tools to address this!</span></p>
 </div>
 </section>
 <section id="the-circadia-lab-toolchain" class="slide level2">
@@ -236,14 +237,13 @@
 <div class="intro">
 <p>Two apps for data collection → two R packages for analysis → one reproducible environment.</p>
 </div>
-<ul>
-<li><strong>Sleep Diaries</strong> — participant-facing sleep diary app (iOS, Android, web)</li>
-<li><strong>ScoreMe</strong> — lab/clinic questionnaire scorer for research cohorts</li>
-<li><strong>slumbR</strong> — R package: import &amp; analyse Sleep Diaries exports</li>
-<li><strong>tallieR</strong> — R package: import &amp; analyse ScoreMe exports</li>
-<li><strong>circadiaBase_Docker</strong> — reproducible Python 3.11 + R 4.4 research environment</li>
-</ul>
-<p><span class="cta">All tools: open source · MIT licence · github.com/circadia-bio</span></p>
+<p><br></p>
+<p>🌙 <strong>Sleep Diaries</strong> — participant-facing sleep diary app (iOS, Android, web);</p>
+<p>📋 <strong>ScoreMe</strong> — lab/clinic questionnaire scorer for research cohorts;</p>
+<p>💤 <strong>slumbR</strong> — R package: import &amp; analyse Sleep Diaries exports;</p>
+<p>🧮 <strong>tallieR</strong> — R package: import &amp; analyse ScoreMe exports;</p>
+<p>🐳 <strong>Circadia Base Docker</strong> — reproducible Python 3.11 + R 4.4 research environment.</p>
+<p><br> <span class="cta">All tools: open source · MIT licence (or similar)</span></p>
 </section>
 <section id="sleep-diaries" class="slide level2">
 <h2>Sleep Diaries</h2>
@@ -257,7 +257,7 @@
 <li><strong>Research codes</strong> for structured studies · CSV + JSON export/import</li>
 <li><strong>Full Brazilian Portuguese</strong> localisation · PWA — installable, works offline</li>
 </ul>
-<p><span class="cta">v1.1.3 · sleepdiaries.circadia-lab.uk</span></p>
+<p><span class="cta">sleepdiaries.circadia-lab.uk</span></p>
 </section>
 <section id="scoreme" class="slide level2">
 <h2>ScoreMe</h2>
@@ -279,12 +279,13 @@
 <p>R companion for Sleep Diaries exports.</p>
 </div>
 <ul>
-<li><strong><code>read_export()</code> / <code>read_study()</code></strong> — parse single or batch JSON exports</li>
-<li><strong><code>compute_sleep_vars()</code></strong> — derives TIB, TST, SE, SOL, WASO and clinical flags</li>
-<li><strong><code>diary_wide()</code></strong> — one row per participant × night with <code>m_</code> / <code>e_</code> prefixes</li>
-<li><strong><code>score_questionnaire()</code></strong> — re-scores all 8 instruments; algorithms match the app</li>
+<li><strong><code>read_export()</code> / <code>read_study()</code></strong> — parse JSON exports</li>
+<li><strong><code>compute_sleep_vars()</code></strong> — derives TIB, TST, SE, SOL, WASO</li>
+<li><strong><code>diary_wide()</code></strong> — one row per participant × night with <code>m_</code> / <code>e_</code> pre.</li>
+<li><strong><code>score_questionnaire()</code></strong> — re-scores all 8 instruments; match the app</li>
 </ul>
 <p>Supports: ESS, ISI, DBAS-16, MEQ, PSQI, RU-SATED, STOP-BANG, MCTQ</p>
+<p><br></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"circadia-bio/slumbR"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="tallier" class="slide level2">
@@ -293,19 +294,20 @@
 <p>R companion for ScoreMe exports.</p>
 </div>
 <ul>
-<li><strong><code>read_scoreme()</code> / <code>read_scoreme_dir()</code></strong> — parse exports; re-scores all 27 instruments</li>
-<li><strong><code>scores_wide()</code> / <code>scores_long()</code></strong> — one row per participant, or full history</li>
-<li><strong><code>cronbach_alpha()</code> / <code>omega_reliability()</code></strong> — internal consistency with exact CIs</li>
-<li><strong><code>interpret_all()</code></strong> — clinical interpretations for every result in a study</li>
-<li><strong><code>load_instrument()</code></strong> — score custom instruments from ScoreMe-compatible JSON</li>
+<li><strong><code>read_scoreme()</code> / <code>read_scoreme_dir()</code></strong> — parse exports; re-scores</li>
+<li><strong><code>scores_wide()</code> / <code>scores_long()</code></strong> — per participant, or full history</li>
+<li><strong><code>cronbach_alpha()</code> / <code>omega_reliability()</code></strong> — with exact CIs</li>
+<li><strong><code>interpret_all()</code></strong> — clinical interpretations for every result</li>
+<li><strong><code>load_instrument()</code></strong> — score custom instruments from JSON</li>
 </ul>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"circadia-bio/tallieR"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="circadiabase_docker" class="slide level2">
-<h2>circadiaBase_Docker</h2>
+<section id="circadia-base-docker" class="slide level2">
+<h2>Circadia Base Docker</h2>
 <div class="intro">
 <p>A reproducible computing environment for chronobiology and actigraphy research.</p>
 </div>
+<p><br></p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p><strong>JupyterLab</strong> <code>localhost:8889</code><br>
@@ -315,34 +317,35 @@ Python 3.11: pyActigraphy, MNE, YASA, EntropyHub, scikit-learn, scipy, statsmode
 R 4.4: GGIR, ActCR, circacompare, cosinor, lme4, brms, rstanarm</p>
 </div></div>
 <p>Fully pinned dependencies · shared volume · Apple Silicon native</p>
+<p><br></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href=""></a><span class="fu">git</span> clone https://github.com/circadia-bio/circadiaBase_Docker <span class="kw">&amp;&amp;</span> <span class="ex">docker</span> compose up</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="design-principles" class="slide level2">
 <h2>Design principles</h2>
-<ul>
-<li><strong>Open source, MIT licensed</strong> — everything on github.com/circadia-bio</li>
-<li><strong>Interoperable</strong> — apps export standard JSON; R packages read those exact files</li>
-<li><strong>Reproducible</strong> — pinned dependencies in Docker; versioned releases with DOIs</li>
-<li><strong>Research-grade</strong> — algorithm parity between app scoring and R re-scoring</li>
-<li><strong>Accessible</strong> — web PWAs require no installation; R packages install in one line</li>
-</ul>
+<p><br></p>
+<p>🔓 <strong>Open source, MIT licensed</strong> — everything on github.com/circadia-bio;</p>
+<p>🔀 <strong>Interoperable</strong> — apps export standard JSON; R packages read those exact files;</p>
+<p>🔂 <strong>Reproducible</strong> — pinned dependencies in Docker; versioned releases with DOIs;</p>
+<p>🔬 <strong>Research-grade</strong> — algorithm parity between app scoring and R re-scoring;</p>
+<p>📦 <strong>Accessible</strong> — web PWAs (no installation); R packages install in one line;</p>
 </section>
 <section id="links-contact" class="slide level2">
 <h2>Links &amp; contact</h2>
+<p><br></p>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><a href="https://circadia-lab.uk" class="cta">circadia-lab.uk</a></p>
-<ul>
-<li><strong>Sleep Diaries</strong> sleepdiaries.circadia-lab.uk</li>
-<li><strong>ScoreMe</strong> scoreme.circadia-lab.uk</li>
-<li><strong>GitHub</strong> github.com/circadia-bio</li>
-</ul>
+<p>🌍 <strong>https://circadia-lab.uk</strong></p>
+<p><br> <br></p>
+<p>🌙 <strong>Sleep Diaries</strong> sleepdiaries.circadia-lab.uk;</p>
+<p>🧮 <strong>ScoreMe</strong> scoreme.circadia-lab.uk;</p>
+<p>👨‍💻 <strong>GitHub</strong> github.com/circadia-bio</p>
 </div><div class="column" style="width:50%;">
 <p><strong>Lucas França</strong><br>
 lucas.franca@northumbria.ac.uk</p>
 <p><strong>Mario Leocadio-Miguel</strong><br>
-m.leocadiomiguel@northumbria.ac.uk</p>
+mario.miguel@northumbria.ac.uk</p>
 </div></div>
+<p><br></p>
 <div class="fragment">
 <p><span class="cta" style="font-size: 1.4em;">Demo →</span></p>
 </div>
