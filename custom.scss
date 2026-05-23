@@ -16,7 +16,7 @@ $heading-color:                   $c-navy;
 $font-family-sans-serif:          'Alice', Georgia, serif;
 $presentation-heading-font:       'Playfair Display', Georgia, serif;
 $presentation-heading-font-weight: 500;
-$presentation-font-size-root:     28px;
+$presentation-font-size-root:     38px;
 $code-block-font-size:            0.68em;
 
 /*-- scss:rules --*/
@@ -102,7 +102,6 @@ $code-block-font-size:            0.68em;
   padding-left: 1.5em;
   position: relative;
   margin-bottom: 0.25em;
-  font-size: 0.88em;
   &::before {
     content: "—";
     color: $c-coral;
@@ -164,9 +163,17 @@ $code-block-font-size:            0.68em;
 }
 .reveal .footer          { font-family: 'Alice', serif; font-size: .44em; color: $c-blue; opacity: .7; }
 
+// ── Per-slide font size helpers ──────────────────────────────────────────
+
+.reveal .text-lg li   { font-size: 1.05em; }
+.reveal .text-lg p    { font-size: 1.05em; }
+.reveal .text-xl li   { font-size: 1.2em; }
+.reveal .text-xl p    { font-size: 1.2em; }
+
 // ── Columns ───────────────────────────────────────────────────────────────
 
 .reveal .columns { align-items: start; gap: 2rem; }
+
 
 .reveal .slides section.title-custom,
 .reveal .slides > section > section.title-custom {

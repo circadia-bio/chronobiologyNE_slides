@@ -31,7 +31,7 @@ format:
     box-sizing: border-box;
     padding-right: 0;
   ">
-    <h1 style="font-family:'Playfair Display',serif; font-size:2.1em; font-weight:500; color:#004474; line-height:1.1; margin:0 0 0.3em;">Building Open Research Infrastructure for Chronobiology</h1>
+    <h1 style="font-family:'Playfair Display',serif; font-size:2.1em; font-weight:500; color:#004474; line-height:1.1; margin:0 0 0.3em;">Building an Open Research Infrastructure for Chronobiology</h1>
     <p style="font-family:'Playfair Display',serif; font-size:1.05em; color:#1B6799; margin:0 0 1em;">Circadia Lab Tools</p>
     <p style="font-family:'Playfair Display',serif; font-size:0.85em; color:#FC544A; margin:0 0 0.6em;">Lucas Fran&#xe7;a &amp; Mario Leocadio-Miguel</p>
     <p style="font-family:'Playfair Display',serif; font-size:0.72em; color:#1B6799; margin:0;">11 June 2026</p>
@@ -41,35 +41,45 @@ format:
 
 ## The problem we're solving
 
+<br>
+
 ::: {.intro}
 Sleep & circadian research depends on validated instruments, careful data collection, and reproducible pipelines.
 :::
 
 Yet the tools connecting these layers are often:
 
-- **fragmented** across incompatible formats and platforms
+- **fragmented** across incompatible formats and platforms, paper-based methods
 - **brittle** — dependent on locally-installed, unversioned software
 - **locked** behind proprietary or expensive licences
 
 ::: {.fragment}
-[We built a stack of interconnected open-source tools to address this.]{.cta}
+[We are building a stack of interconnected open-source tools to address this!]{.cta}
 :::
 
 ---
 
 ## The Circadia Lab toolchain
 
+
 ::: {.intro}
 Two apps for data collection → two R packages for analysis → one reproducible environment.
 :::
 
-- **Sleep Diaries** — participant-facing sleep diary app (iOS, Android, web)
-- **ScoreMe** — lab/clinic questionnaire scorer for research cohorts
-- **slumbR** — R package: import & analyse Sleep Diaries exports
-- **tallieR** — R package: import & analyse ScoreMe exports
-- **circadiaBase_Docker** — reproducible Python 3.11 + R 4.4 research environment
+<br>
 
-[All tools: open source · MIT licence · github.com/circadia-bio]{.cta}
+🌙 **Sleep Diaries** — participant-facing sleep diary app (iOS, Android, web);
+
+📋 **ScoreMe** — lab/clinic questionnaire scorer for research cohorts;
+
+💤 **slumbR** — R package: import & analyse Sleep Diaries exports;
+
+🧮 **tallieR** — R package: import & analyse ScoreMe exports;
+
+🐳 **Circadia Base Docker** — reproducible Python 3.11 + R 4.4 research environment.
+
+<br>
+[All tools: open source · MIT licence (or similar)]{.cta}
 
 ---
 
@@ -85,7 +95,7 @@ A consensus-based sleep diary app for iOS, Android and web.
 - **Research codes** for structured studies · CSV + JSON export/import
 - **Full Brazilian Portuguese** localisation · PWA — installable, works offline
 
-[v1.1.3 · sleepdiaries.circadia-lab.uk]{.cta}
+[sleepdiaries.circadia-lab.uk]{.cta}
 
 ---
 
@@ -111,12 +121,14 @@ A lab and clinic app for administering validated questionnaires to research coho
 R companion for Sleep Diaries exports.
 :::
 
-- **`read_export()` / `read_study()`** — parse single or batch JSON exports
-- **`compute_sleep_vars()`** — derives TIB, TST, SE, SOL, WASO and clinical flags
-- **`diary_wide()`** — one row per participant × night with `m_` / `e_` prefixes
-- **`score_questionnaire()`** — re-scores all 8 instruments; algorithms match the app
+- **`read_export()` / `read_study()`** — parse JSON exports
+- **`compute_sleep_vars()`** — derives TIB, TST, SE, SOL, WASO
+- **`diary_wide()`** — one row per participant × night with `m_` / `e_` pre.
+- **`score_questionnaire()`** — re-scores all 8 instruments; match the app
 
 Supports: ESS, ISI, DBAS-16, MEQ, PSQI, RU-SATED, STOP-BANG, MCTQ
+
+<br>
 
 ```r
 remotes::install_github("circadia-bio/slumbR")
@@ -130,11 +142,11 @@ remotes::install_github("circadia-bio/slumbR")
 R companion for ScoreMe exports.
 :::
 
-- **`read_scoreme()` / `read_scoreme_dir()`** — parse exports; re-scores all 27 instruments
-- **`scores_wide()` / `scores_long()`** — one row per participant, or full history
-- **`cronbach_alpha()` / `omega_reliability()`** — internal consistency with exact CIs
-- **`interpret_all()`** — clinical interpretations for every result in a study
-- **`load_instrument()`** — score custom instruments from ScoreMe-compatible JSON
+- **`read_scoreme()` / `read_scoreme_dir()`** — parse exports; re-scores 
+- **`scores_wide()` / `scores_long()`** — per participant, or full history
+- **`cronbach_alpha()` / `omega_reliability()`** — with exact CIs
+- **`interpret_all()`** — clinical interpretations for every result
+- **`load_instrument()`** — score custom instruments from JSON
 
 ```r
 remotes::install_github("circadia-bio/tallieR")
@@ -142,11 +154,13 @@ remotes::install_github("circadia-bio/tallieR")
 
 ---
 
-## circadiaBase_Docker
+## Circadia Base Docker
 
 ::: {.intro}
 A reproducible computing environment for chronobiology and actigraphy research.
 :::
+
+<br>
 
 :::: {.columns}
 ::: {.column width="50%"}
@@ -161,6 +175,8 @@ R 4.4: GGIR, ActCR, circacompare, cosinor, lme4, brms, rstanarm
 
 Fully pinned dependencies · shared volume · Apple Silicon native
 
+<br>
+
 ```bash
 git clone https://github.com/circadia-bio/circadiaBase_Docker && docker compose up
 ```
@@ -169,32 +185,47 @@ git clone https://github.com/circadia-bio/circadiaBase_Docker && docker compose 
 
 ## Design principles
 
-- **Open source, MIT licensed** — everything on github.com/circadia-bio
-- **Interoperable** — apps export standard JSON; R packages read those exact files
-- **Reproducible** — pinned dependencies in Docker; versioned releases with DOIs
-- **Research-grade** — algorithm parity between app scoring and R re-scoring
-- **Accessible** — web PWAs require no installation; R packages install in one line
+<br>
+
+🔓 **Open source, MIT licensed** — everything on github.com/circadia-bio; 
+
+🔀 **Interoperable** — apps export standard JSON; R packages read those exact files; 
+
+🔂 **Reproducible** — pinned dependencies in Docker; versioned releases with DOIs; 
+
+🔬 **Research-grade** — algorithm parity between app scoring and R re-scoring; 
+
+📦 **Accessible** — web PWAs (no installation); R packages install in one line;
 
 ---
 
 ## Links & contact
 
+<br>
+
 :::: {.columns}
 ::: {.column width="50%"}
-[circadia-lab.uk](https://circadia-lab.uk){.cta}
+🌍 **https://circadia-lab.uk**
 
-- **Sleep Diaries** sleepdiaries.circadia-lab.uk
-- **ScoreMe** scoreme.circadia-lab.uk
-- **GitHub** github.com/circadia-bio
+<br>
+<br>
+
+🌙 **Sleep Diaries** sleepdiaries.circadia-lab.uk;
+
+🧮 **ScoreMe** scoreme.circadia-lab.uk;
+
+👨‍💻 **GitHub** github.com/circadia-bio
 :::
 ::: {.column width="50%"}
 **Lucas França**  
 lucas.franca@northumbria.ac.uk
 
 **Mario Leocadio-Miguel**  
-m.leocadiomiguel@northumbria.ac.uk
+mario.miguel@northumbria.ac.uk
 :::
 ::::
+
+<br>
 
 ::: {.fragment}
 [Demo →]{.cta style="font-size: 1.4em;"}
