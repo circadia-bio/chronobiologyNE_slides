@@ -1,0 +1,7 @@
+.quarto/
+docs/
+.DS_Store
+*.html
+.Rproj.user
+
+/.quarto/
